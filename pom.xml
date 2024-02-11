@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>liquibase-snowflake-sample</groupId>
+    <artifactId>liquibase-snowflake-test</artifactId>
+    <version>2.0.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <liquibase.core.version>4.11.0</liquibase.core.version>
+        <liquibase.snowflake.version>4.11.0</liquibase.snowflake.version>
+        <snowflake.jdbc.version>3.13.19</snowflake.jdbc.version>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/net.snowflake/snowflake-jdbc -->
+        <dependency>
+            <groupId>net.snowflake</groupId>
+            <artifactId>snowflake-jdbc</artifactId>
+            <version>${snowflake.jdbc.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <name>Liquibase Snowflake Database Test Sample</name>
+    <description>Liquibase Snowflake Database Test Sample</description>
+    <build>
+        <directory>${project.basedir}/target</directory>
+        <plugins>
+
+            <!-- Liquibase -->
+
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase.core.version}</version>
+                <configuration>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                    <driver>net.snowflake.client.jdbc.SnowflakeDriver</driver>
+                    <url>jdbc:snowflake://xcwfawj-to69215.snowflakecomputing.com/?role=ACCOUNTADMIN&amp;warehouse=COMPUTE_WH&amp;db=liquibase&amp;schema=public</url>
+                    <username>g2smtech</username>
+                    <password>Snowflake_2024</password>
+                </configuration>
+
+                <!-- dependencies -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.liquibase.ext</groupId>
+                        <artifactId>liquibase-snowflake</artifactId>
+                        <version>${liquibase.snowflake.version}</version>
+                    </dependency>
+                </dependencies>
+
+                <executions>
+                    <execution>
+                        <id>ddl1</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <configuration>
+                            <changeLogFile>masterChangelog.xml</changeLogFile>
+                                <url>jdbc:snowflake://xcwfawj-to69215.snowflakecomputing.com/?db=liquibase&amp;schema=PUBLIC&amp;role=ACCOUNTADMIN&amp;warehouse=COMPUTE_WH</url>
+                        </configuration>
+                    </execution>
+                </executions>
+
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>
