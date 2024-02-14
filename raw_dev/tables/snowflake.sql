@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset  20240213:sample-table
+--changeset  20240214:sample-table
 
 create or replace table dim_channels
 (
