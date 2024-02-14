@@ -1,12 +1,12 @@
 --liquibase formatted sql
 
---changeset venky:sample-table
+--changeset  20240213:sample-table
 
-create table dim_channels
+create or replace table dim_channels
 (
 dim_channel_key smallint NOT NULL,
-dim_channel_key1 smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
+channel_category character varying(40) NOT NULL,
 channel_type character varying(20) NOT NULL,
 channel_sub_type character varying(20) NOT NULL,
 storing_order integer NOT NULL,
