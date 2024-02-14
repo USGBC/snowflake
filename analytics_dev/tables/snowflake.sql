@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset szalwinb:create-a-table
+--changeset venky:sample-table
 
 create table dim_channels
 (
@@ -15,5 +15,4 @@ created_date timestamp without time zone NOT NULL,
 last_modified_date timestamp without time zone NOT NULL,
 oem_owner character varying(50) NOT NULL,
 publisher character varying(100) NOT NULL
-)
-;
+);

@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: raw_prd
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "raw_prd/**" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  LiquibaseDockerCLI:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run ' Liquibase status' in Docker
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE }}&schema=raw_prd" --changeLogFile=/raw_prd/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug status
+    - name: Run ' Liquibase update' in Docker
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE }}&schema=raw_prd" --changeLogFile=/raw_prd/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug update
+    
