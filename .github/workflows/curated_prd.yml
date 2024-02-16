@@ -1,18 +1,15 @@
 # This is a basic workflow to help you get started with Actions
 
-name: curated_prd
+name: curated_prod
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-    paths: [ "curated_prd/**" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    paths:  
+      - "curated_prod/**"
+      - ".github/workflows/curated_prod.yaml"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,9 +20,9 @@ jobs:
     - name: Run ' Liquibase status' in Docker
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE }}&schema=curated_prd" --changeLogFile=/curated_prd/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug status
+        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_CURATED_PRD }}&schema=curated_prod" --changeLogFile=/curated_prod/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug status
     - name: Run ' Liquibase update' in Docker
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE }}&schema=curated_prd" --changeLogFile=/curated_prd/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug update
+        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_CURATED_PRD }}&schema=curated_prod" --changeLogFile=/curated_prod/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug update
     
