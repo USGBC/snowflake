@@ -1,8 +1,8 @@
 --liquibase formatted sql
 
---changeset  20240219:api
+--changeset  2024020:api
 
-create or replace table raw_dev.api.api
+create or replace table raw_dev.eventbrite.api
 (
 dim_channel_key smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
