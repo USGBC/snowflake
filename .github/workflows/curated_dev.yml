@@ -8,7 +8,7 @@ on:
   push:
     branches: [ "main" ]
     paths:  
-      - "curated_dev/**"
+      - "curated_dev/tables/**"
       - ".github/workflows/curated_dev.yaml"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -24,5 +24,5 @@ jobs:
     - name: Run ' Liquibase update' in Docker
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_CURATED_DEV }} --changeLogFile=/curated_dev/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug update
+        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_CURATED_DEV }}" --changeLogFile=/curated_dev/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug update
     
