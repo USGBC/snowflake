@@ -1,8 +1,8 @@
 --liquibase formatted sql
 
---changeset  20240217:TEST
+--changeset  20240218:TEST
 
-create or replace table channels
+create or replace table raw_dev.api.channels
 (
 dim_channel_key smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
