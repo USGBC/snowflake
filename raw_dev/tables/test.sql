@@ -2,7 +2,7 @@
 
 --changeset  20240218:TEST
 
-create or replace table raw_dev.api.channels
+create or replace table raw_dev.api.api
 (
 dim_channel_key smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
