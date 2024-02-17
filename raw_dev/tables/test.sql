@@ -2,8 +2,8 @@
 
 --changeset  20240216:TEST
 
-USE SCHEMA API;
-create or replace table TEST
+
+create or replace table RAW_DEV.API.TEST
 (
 dim_channel_key smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
