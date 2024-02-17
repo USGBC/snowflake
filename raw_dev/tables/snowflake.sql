@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset  20240215:sample-table
+--changeset  20240216:sample-table
 
 use schema API;
 create table IF NOT EXISTS dim_channels
