@@ -1,8 +1,8 @@
 --liquibase formatted sql
 
---changeset  20240214:sample-table
+--changeset  20240215:sample-table
 
-create or replace table dim_channels
+create table IF NOT EXISTS dim_channels
 (
 dim_channel_key smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
