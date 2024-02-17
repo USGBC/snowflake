@@ -20,9 +20,9 @@ jobs:
     - name: Run ' Liquibase status' in Docker
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_ANALYTICS_DEV }}" --changeLogFile=/analytics_dev/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug status
+        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_ANALYTICS_DEV }}&schema=LIQUIBASE" --changeLogFile=/analytics_dev/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug status
     - name: Run ' Liquibase update' in Docker
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_ANALYTICS_DEV }}&schema=analytics_dev" --changeLogFile=/analytics_dev/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug update
+        args: --url="${{ secrets.SF_URL }}/?db=${{ secrets.SF_DATABASE_ANALYTICS_DEV }}&schema=LIQUIBASE" --changeLogFile=/analytics_dev/masterChangelog.xml --username=${{ secrets.SF_USERNAME }} --password=${{ secrets.SF_PASSWORD }} --logLevel=debug update
     
