@@ -2,6 +2,7 @@
 
 --changeset  20240215:sample-table
 
+use schema API;
 create table IF NOT EXISTS dim_channels
 (
 dim_channel_key smallint NOT NULL,
