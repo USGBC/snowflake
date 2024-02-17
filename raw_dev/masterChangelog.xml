@@ -5,5 +5,6 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
     <include file="/tables/snowflake.sql" relativeToChangelogFile="true" />
+    <include file="/tables/test.sql" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
