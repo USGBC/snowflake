@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset  20240218:TEST
+--changeset  20240219:api
 
 create or replace table raw_dev.api.api
 (
