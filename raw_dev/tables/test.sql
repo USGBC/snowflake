@@ -15,7 +15,6 @@ channel_display_name character varying(40) NOT NULL,
 channel_code character varying(20) NOT NULL,
 created_date timestamp without time zone NOT NULL,
 last_modified_date timestamp without time zone NOT NULL,
-oem_owner character varying(50) NOT NULL,
-publisher character varying(100) NOT NULL
+oem_owner character varying(50) NOT NULL
 )
 ;
