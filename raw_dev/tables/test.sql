@@ -2,7 +2,6 @@
 
 --changeset  20240217:TEST
 
-use database raw_dev;
 create or replace table channels
 (
 dim_channel_key smallint NOT NULL,
