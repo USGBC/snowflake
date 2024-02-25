@@ -6,7 +6,6 @@
 
     <include file="/tables/snowflake.sql" relativeToChangelogFile="true" />
     <include file="/tables/STARTUP_PROJECTS_EDGE1.sql" relativeToChangelogFile="true" />
-    <include file="/tables/STARTUP_PROJECTS_EDGE_VW.sql" relativeToChangelogFile="true" />
     <include file="/views/STARTUP_PROJECTS_EDGE_VW.sql" relativeToChangelogFile="true" />
         
 </databaseChangeLog>
