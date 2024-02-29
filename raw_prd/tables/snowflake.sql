@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset venky123:sample-table
+--changeset venky123123:sample-table
 
 create or replace table dim_channels
 (
