@@ -1,15 +1,17 @@
 # This is a basic workflow to help you get started with Actions
 
-name: raw_prod
+name: raw_prd
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
     paths:  
-      - "raw_prod/**"
-      - ".github/workflows/raw_prod.yaml"
+      - "raw_prd/**"
+      - ".github/workflows/raw_prd.yaml"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
