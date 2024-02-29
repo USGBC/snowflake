@@ -2,7 +2,7 @@
 
 --changeset venky123:sample-table
 
-create table dim_channels
+create or replace table dim_channels
 (
 dim_channel_key smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
