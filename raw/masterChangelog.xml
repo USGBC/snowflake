@@ -5,6 +5,6 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
 
         <includeAll path="tables/" relativeToChangelogFile="true"/>
-        <includeAll path="procedures/" relativeToChangelogFile="true"/>
+        <includeAll path="stored_procedures/" relativeToChangelogFile="true"/>
         <includeAll path="views/" relativeToChangelogFile="true"/>
 </databaseChangeLog>
