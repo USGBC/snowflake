@@ -6,7 +6,6 @@ use schema API;
 create table IF NOT EXISTS channels
 (
 dim_channel_key smallint NOT NULL,
-dim_channel_key_key smallint NOT NULL,
 channel_name character varying(40) NOT NULL,
 channel_category character varying(400) NOT NULL,
 channel_type character varying(20) NOT NULL,
